@@ -7,7 +7,11 @@ Voici le repo git du test technique Ubilab en Typescript.
 - L'objectif et de faire passer tous les tests unitaires 1 à 1 est dans l'ordre. (ng serve)
     - Chaque étape doit être une branche git crée et chaque test unitaire un nouveau commit.
     - Vous pouvez modifier comme vous le souhaitez les fichiers, tant que les tests unitaire passe. (c'est même conseillé :D)
+    - Nous ne voulons pas que vous ajoutiez de librairie ( ex : lodash) pour vous aider dans ce projet
 - [Optionel] Si vous le voulez vous pouvez crée un interface graphique qui utilise le service que vous venez d'implementer.
+
+
+
 
 Chez Ubilab nous aimons :
 * le code simple lisible et élégant
