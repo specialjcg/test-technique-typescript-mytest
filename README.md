@@ -4,10 +4,10 @@ Voici le repo git du test technique Ubilab en Typescript.
 
 - Crée un fork de ce repo
 - Cloner le repo sur votre ordinateur, puis npm install
-- L'objectif et de faire passé tous les tests unitaires 1 à 1 est dans l'ordre. (ng serve)
-    - Chaque étape doit être un branche git crée et chaque test unitaire un nouveau commit.
+- L'objectif et de faire passer tous les tests unitaires 1 à 1 est dans l'ordre. (ng serve)
+    - Chaque étape doit être une branche git crée et chaque test unitaire un nouveau commit.
     - Vous pouvez modifier comme vous le souhaitez les fichiers, tant que les tests unitaire passe. (c'est même conseillé :D)
-- [Optionel] Si vous le voulez vous cpouvez crée un interface graphique qui utilise le service que vous venez d'implementé.
+- [Optionel] Si vous le voulez vous pouvez crée un interface graphique qui utilise le service que vous venez d'implementer.
 
 Chez Ubilab nous aimons :
 * le code simple lisible et élégant
