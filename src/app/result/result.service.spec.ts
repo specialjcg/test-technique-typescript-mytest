@@ -36,7 +36,7 @@ describe('ResultService', () => {
     it('devrait avoir une list de 1 resultat vue aprés la vision de ce résultat',
       fakeAsync(() => {
         resultService.seenResult(46);
-        expect(resultService.getAllResult().length).toEqual(1);
+        expect(resultService.getAllResultSeen().length).toEqual(1);
         expect(resultService.getAllResult()[1].isSeen).toEqual(true);
       })
     );
@@ -73,7 +73,7 @@ describe('ResultService', () => {
       })
     );
 
-    it('devrait avoir plus que 2 resultats vue dans la liste aprés qu\'il soit tous vue puis 1 ou la vue n\'existe plus',
+    it('devrait avoir plus que 2 resultats vue dans la liste aprés qu\'il soit tous vue puis 1 ou la vue est enlevé',
       fakeAsync(() => {
         expect(false).toEqual(true);
       })
@@ -91,10 +91,11 @@ describe('ResultService', () => {
   describe(',aprés l\'ajout de 3 resultats,', () => {
 
     beforeEach(() => {
-      // init le service avec 3 resultats
+      // init le service avec 3 resultats (doit etre identique que le step 2)
     });
 
-    it('devrait avoir les list d\'event des résultat vide',
+    //ps : je ne veux pas que les event de création soi initialisé dans le beforeEach ci dessus mais directement dans le resultService
+    it('devrait avoir la list des résultat dans l\'order de création ( en se basant sur les events de création)',
       fakeAsync(() => {
         expect(false).toEqual(true);
       })
@@ -112,7 +113,15 @@ describe('ResultService', () => {
       })
     );
 
+    it('devrait avoir une fonction qui retourne une liste ordonnée des resultats par rapport au dernier modifier',
+      fakeAsync(() => {
+        expect(false).toEqual(true);
+      })
+    );
+
   });
 
+
   /* proposé de nouveau test */
+
 });
