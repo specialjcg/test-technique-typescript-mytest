@@ -12,7 +12,8 @@ Voici le repo git du test technique Ubilab en Typescript.
 Chez Ubilab nous aimons :
 * le code simple lisible et élégant
 * le code maintenable,
-* le code testable
+* le code testable,
+
 Ayez toujours à l'esprit que c'est principalement ces critères que nous jugerons.
 
 # TestTypescript
