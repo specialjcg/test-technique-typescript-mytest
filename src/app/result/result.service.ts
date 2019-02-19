@@ -10,7 +10,7 @@ export class ResultService {
 
   constructor() { }
 
-  public newResult(newResult:ResultModel) {
+  public addResult(newResult:ResultModel) {
     
   }
 
@@ -48,5 +48,5 @@ export class ResultService {
   
 
   
-  
+
 }
