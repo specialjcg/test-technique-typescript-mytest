@@ -38,15 +38,4 @@ export class ResultService {
   {
     return null;
   }
-
-  public getEvents() : Array<ResultEventModel> {
-    return null;
-  }
-
-  
-
-  
-
-  
-
 }
