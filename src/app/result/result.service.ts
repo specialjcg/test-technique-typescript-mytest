@@ -10,7 +10,10 @@ export class ResultService {
   listOfResult: Array<ResultModel> = [];
   constructor() {}
 
-  public addResult(newResult: ResultModel) {}
+  public addResult(newResult: ResultModel) {
+   this.listOfResult.push(newResult);
+
+  }
 
   public seenResult(idResult: number) {}
 
