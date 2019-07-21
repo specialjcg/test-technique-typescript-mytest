@@ -4,38 +4,31 @@ import { ResultEventModel } from './model/result-event.model';
 import { unusedValueExportToPlacateAjd } from '@angular/core/src/render3/interfaces/injector';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ResultService {
+  listOfResult: Array<ResultModel> = [];
+  constructor() {}
 
-  constructor() { }
+  public addResult(newResult: ResultModel) {}
 
-  public addResult(newResult:ResultModel) {
-    
+  public seenResult(idResult: number) {}
+
+  public unseenResult(idResult: number) {}
+
+  public getAllResult(): Array<ResultModel> {
+   return this.listOfResult;
   }
 
-  public seenResult(idResult:number) {
-    
-  }
-
-  public unseenResult(idResult:number) {
-    
-  }
-
-  public getAllResult() : Array<ResultModel> {
+  public getAllResultSeen(): Array<ResultModel> {
     return null;
   }
 
-  public getAllResultSeen() : Array<ResultModel> {
+  public getAllResultUnSeen(): Array<ResultModel> {
     return null;
   }
 
-  public getAllResultUnSeen() : Array<ResultModel> {
-    return null;
-  }
-
-  public numberOfEventSeen() : number
-  {
+  public numberOfEventSeen(): number {
     return null;
   }
 }
