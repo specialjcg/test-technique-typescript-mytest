@@ -64,10 +64,29 @@ export class ResultService {
     }
   }
 
-  public unseenResult(idResult: number) {
-    this.listOfResult.filter(
-      result => result.id === idResult
-    )[0].isSeen = false;
+  public unseenResult(idResult: number): boolean {
+    if (
+      this.listOfResult.filter(result => result.id === idResult).length !== 0
+    ) {
+      this.date = new Date(
+        performance.timing.navigationStart + performance.now()
+      );
+      const eventUnseen: ResultEventModel = {
+        id: 'unseen',
+        idOwner: this.listOfResult.filter(i => i.id === idResult)[0].idOwner,
+        createdAt: this.date,
+      };
+      this.waitsimul();
+      this.listOfResult.filter(
+        result => result.id === idResult
+      )[0].isSeen = false;
+      this.listOfResult
+        .filter(result => result.id === idResult)[0]
+        .eventResults.push(eventUnseen);
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public getAllResult(): Array<ResultModel> {

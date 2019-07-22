@@ -209,7 +209,18 @@ describe('ResultService', () => {
 
     it("devrait avoir 2 events avec 2 dates différent aprés la vision d\'un resultat puis la suppression de la vision",
       fakeAsync(() => {
-        expect(false).toEqual(true);
+           resultService.seenResult(46);
+           resultService.unseenResult(46);
+           const testdateSeen = resultService
+             .getAllResult()[0]
+             .eventResults[1].createdAt.getTime();
+           const testdateUnseen = resultService
+             .getAllResult()[0]
+             .eventResults[2].createdAt.getTime();
+           expect(
+             resultService.getAllResult()[0].eventResults.length
+           ).toEqual(3); //created/seen/unseen
+           expect(testdateSeen <= testdateUnseen).toEqual(true);
       })
     );
 
