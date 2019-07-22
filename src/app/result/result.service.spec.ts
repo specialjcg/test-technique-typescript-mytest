@@ -47,11 +47,43 @@ describe('ResultService', () => {
 
     beforeEach(() => {
       // init le service avec 3 resultats
+       const resultOne: ResultModel = {
+         id: 46,
+         idOwner: 76,
+         idRecipients: [42],
+         isSeen: false,
+         eventResults: [],
+         contentOfResult: 'Test',
+       };
+       const resultTwo: ResultModel = {
+         id: 47,
+         idOwner: 77,
+         idRecipients: [43],
+         isSeen: false,
+         eventResults: [],
+         contentOfResult: 'Test',
+       };
+       const resultTree: ResultModel = {
+         id: 48,
+         idOwner: 78,
+         idRecipients: [44],
+         isSeen: false,
+         eventResults: [],
+         contentOfResult: 'Test',
+       };
+
+       resultService = new ResultService();
+       resultService.addResult(resultOne);
+       resultService.addResult(resultTwo);
+       resultService.addResult(resultTree);
     });
 
     it("devrait avoir une liste de 3 resultats non vue aprés l\'ajout de 3 resultat.",
       fakeAsync(() => {
-        expect(false).toEqual(true);
+        expect(resultService.getAllResult().length).toEqual(3);
+        for (const result of resultService.getAllResult()) {
+          expect(result.isSeen).toEqual(false);
+        }
       })
     );
 
