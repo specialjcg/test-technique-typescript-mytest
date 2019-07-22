@@ -193,7 +193,17 @@ describe('ResultService', () => {
 
     it("devrait avoir 1 event a la date de maintenant quand 1 résultat est vue",
       fakeAsync(() => {
-        expect(false).toEqual(true);
+         resultService.seenResult(46);
+
+         const testSeendateEqualNow =
+           resultService
+             .getAllResultSeen()[0]
+             .eventResults.filter(result => result.id === 'seen')[0]
+             .createdAt.getTime() -
+             Date.now() <
+           10;
+
+         expect(testSeendateEqualNow).toEqual(true);
       })
     );
 

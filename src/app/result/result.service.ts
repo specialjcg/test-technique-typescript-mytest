@@ -42,10 +42,22 @@ export class ResultService {
     if (
       this.listOfResult.filter(result => result.id === idResult).length !== 0
     ) {
+      this.date = new Date(
+        performance.timing.navigationStart + performance.now()
+      );
+      const eventSeen: ResultEventModel = {
+        id: 'seen',
+        idOwner: this.listOfResult.filter(result => result.id === idResult)[0]
+          .idOwner,
+        createdAt: this.date,
+      };
+      this.waitsimul();
       this.listOfResult.filter(
         result => result.id === idResult
       )[0].isSeen = true;
-
+      this.listOfResult
+        .filter(result => result.id === idResult)[0]
+        .eventResults.push(eventSeen);
       return true;
     } else {
       return false;
