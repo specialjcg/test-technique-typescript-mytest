@@ -5,7 +5,7 @@
   crossorigin="anonymous"
 />
 
-<div class="pure-form pure-form-stacked">
+<div class="pure-form pure-form-stacked left">
   <fieldset>
     <legend>UbilabTest</legend>
 
@@ -31,38 +31,7 @@
         />
       </div>
       <div class="pure-u-1-24"></div>
-      <div class="pure-u-1-4">
-        <label for="last-name">ajouter récipients</label>
-        <a
-          class="pure-button"
-          href="#"
-          style="color: green;"
-          (click)="addRecipient()"
-        >
-          <i class="fas fa-plus-circle"></i>
-        </a>
-        <form ngNoForm>
-          <div
-            *ngFor="let item of selectedResultModel.idRecipients; let i = index"
-            class="pure-u-1-2"
-          >
-            <input
-              name="name"
-              [ngModel]="selectedResultModel.idRecipients[i]"
-              type="number"
-            />
 
-            <a
-              class="pure-button"
-              href="#"
-              style="color: Tomato;"
-              (click)="removeRecipient(i)"
-            >
-              <i class="fas fa-minus-circle"></i>
-            </a>
-          </div>
-        </form>
-      </div>
     </div>
 
     <button
@@ -72,7 +41,7 @@
     >
       Tous les résultats
     </button>
-
+ <div class="pure-u-1-24"></div>
     <button
       type="submit"
       class="pure-button pure-button-primary"
@@ -80,6 +49,7 @@
     >
       Ajouter un résultat
     </button>
+     <div class="pure-u-1-24"></div>
     <button
       type="submit"
       class="pure-button pure-button-primary"
@@ -87,6 +57,7 @@
     >
       Tous les résultats VU
     </button>
+     <div class="pure-u-1-24"></div>
     <button
       type="submit"
       class="pure-button pure-button-primary"
@@ -95,7 +66,7 @@
       Tous les résultats Non Vu
     </button>
   </fieldset>
-</div>
+
 
 <table class="pure-table">
   <thead>
@@ -128,3 +99,40 @@
     </tr>
   </tbody>
 </table>
+</div>
+<div class="pure-form pure-form-stacked right">
+ <div class="pure-u-1-2 " >
+        <label for="last-name">ajouter récipients</label>
+        <a
+          class="pure-button"
+          href="#"
+          style="color: green;"
+          (click)="addRecipient()"
+        >
+          <i class="fas fa-plus-circle"></i>
+        </a>
+        <form ngNoForm>
+          <div
+            *ngFor="let item of selectedResultModel.idRecipients; let i = index"
+            class="pure-u-1-4"
+          >
+            <input
+            class="pure-u-1-1"
+              name="name"
+              [(ngModel)]="selectedResultModel.idRecipients[i]"
+              type="number"
+            />
+
+            <a
+              class="pure-button"
+              href="#"
+              style="color: Tomato;"
+              (click)="removeRecipient(i)"
+            >
+              <i class="fas fa-minus-circle"></i>
+            </a>
+
+          </div>
+        </form>
+      </div>
+</div>
