@@ -98,7 +98,17 @@ export class ResultService {
   }
 
   public getAllResultUnSeen(): Array<ResultModel> {
-    return null;
+    return this.listOfResult.filter(result => result.isSeen === false);
+  }
+  public getAllResultSortByLastModified(): Array<ResultModel> {
+    return this.listOfResult
+      .sort((a, b) => {
+        return (
+          a.eventResults[a.eventResults.length - 1].createdAt.getTime() -
+          b.eventResults[b.eventResults.length - 1].createdAt.getTime()
+        );
+      })
+      .reverse();
   }
 
   public numberOfEventSeen(): number {

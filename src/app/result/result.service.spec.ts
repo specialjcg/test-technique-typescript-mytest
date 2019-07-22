@@ -226,7 +226,22 @@ describe('ResultService', () => {
 
     it("devrait avoir une fonction qui retourne une liste ordonnée des resultats par rapport au dernier modifier",
       fakeAsync(() => {
-        expect(false).toEqual(true);
+     resultService.seenResult(46);
+
+     resultService.seenResult(48);
+
+     resultService.seenResult(47);
+
+     resultService.unseenResult(46);
+
+     resultService.unseenResult(47);
+     let newlistresult: ResultModel[];
+     newlistresult = resultService.getAllResultSortByLastModified();
+     // sould return 47-46-48
+
+     expect(newlistresult[0].id === 47).toEqual(true);
+     expect(newlistresult[1].id === 46).toEqual(true);
+     expect(newlistresult[2].id === 48).toEqual(true);
       })
     );
 
