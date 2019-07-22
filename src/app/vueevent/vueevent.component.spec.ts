@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VueeventComponent } from './vueevent.component';
+import { RouterModule } from '@angular/router';
 
 describe('VueeventComponent', () => {
   let component: VueeventComponent;
@@ -8,7 +9,9 @@ describe('VueeventComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VueeventComponent ]
+      declarations: [ VueeventComponent ],
+      imports: [
+    RouterModule.forRoot([]),]
     })
     .compileComponents();
   }));
