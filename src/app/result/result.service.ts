@@ -10,11 +10,27 @@ export class ResultService {
   listOfResult: Array<ResultModel> = [];
   constructor() {}
 
+  date: Date;
+  // contournement pour distingueur la création des dates entre deux instances pendant les tests
+  private waitsimul() {
+    for (let i = 0; i < 10000000; i++) {}
+  }
   public addResult(newResult: ResultModel): boolean {
     if (
       this.listOfResult.filter(result => result.id === newResult.id).length ===
       0
     ) {
+      this.date = new Date(
+        performance.timing.navigationStart + performance.now()
+      );
+      const eventCreated: ResultEventModel = {
+        id: 'created',
+        idOwner: newResult.idOwner,
+        createdAt: this.date,
+      };
+      newResult.eventResults.push(eventCreated);
+
+      this.waitsimul();
       this.listOfResult.push(newResult);
       return true;
     } else {

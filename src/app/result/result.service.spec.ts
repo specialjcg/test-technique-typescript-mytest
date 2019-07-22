@@ -143,12 +143,51 @@ describe('ResultService', () => {
 
     beforeEach(() => {
       // init le service avec 3 resultats (doit etre identique que le step 2)
+          const resultOne: ResultModel = {
+            id: 46,
+            idOwner: 76,
+            idRecipients: [42],
+            isSeen: false,
+            eventResults: [],
+            contentOfResult: 'Test',
+          };
+          const resultTwo: ResultModel = {
+            id: 47,
+            idOwner: 77,
+            idRecipients: [43],
+            isSeen: false,
+            eventResults: [],
+            contentOfResult: 'Test',
+          };
+          const resultTree: ResultModel = {
+            id: 48,
+            idOwner: 78,
+            idRecipients: [44],
+            isSeen: false,
+            eventResults: [],
+            contentOfResult: 'Test',
+          };
+
+          resultService = new ResultService();
+          resultService.addResult(resultOne);
+          resultService.addResult(resultTwo);
+          resultService.addResult(resultTree);
     });
 
     //ps : je ne veux pas que les event de création soi initialisé dans le beforeEach ci dessus mais directement dans le resultService
     it("devrait avoir la list des résultat dans l\'order de création ( en se basant sur les events de création)",
       fakeAsync(() => {
-        expect(false).toEqual(true);
+        let timeIntermediaire = 0;
+        let testAscendentTime = true;
+        for (const item of resultService.getAllResult()) {
+          testAscendentTime =
+            testAscendentTime &&
+            timeIntermediaire <
+              item.eventResults[0].createdAt.getTime();
+          timeIntermediaire = item.eventResults[0].createdAt.getTime();
+        }
+
+        expect(testAscendentTime).toEqual(true);
       })
     );
 
