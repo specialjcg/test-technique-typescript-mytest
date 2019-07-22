@@ -26,7 +26,11 @@ export class ResultService {
     this.listOfResult.filter(result => result.id === idResult)[0].isSeen = true;
   }
 
-  public unseenResult(idResult: number) {}
+  public unseenResult(idResult: number) {
+     this.listOfResult.filter(
+       result => result.id === idResult
+     )[0].isSeen = false;
+  }
 
   public getAllResult(): Array<ResultModel> {
     return this.listOfResult;
