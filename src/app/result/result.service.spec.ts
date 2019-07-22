@@ -87,9 +87,19 @@ describe('ResultService', () => {
       })
     );
 
-    it("ne devrait pas authorisé l'ajout d'un résultats avec un id existent",
+    it("ne devrait pas autoriser l'ajout d'un résultat avec un id existant",
       fakeAsync(() => {
-        expect(false).toEqual(true);
+           const resultFour: ResultModel = {
+             id: 48,
+             idOwner: 78,
+             idRecipients: [44],
+             isSeen: false,
+             eventResults: [],
+             contentOfResult: 'Test',
+           };
+           expect(resultService.addResult(resultFour)).toEqual(
+             false
+           );
       })
     );
 
