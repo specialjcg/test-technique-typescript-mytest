@@ -22,14 +22,24 @@ export class ResultService {
     }
   }
 
-  public seenResult(idResult: number) {
-    this.listOfResult.filter(result => result.id === idResult)[0].isSeen = true;
+  public seenResult(idResult: number): boolean {
+    if (
+      this.listOfResult.filter(result => result.id === idResult).length !== 0
+    ) {
+      this.listOfResult.filter(
+        result => result.id === idResult
+      )[0].isSeen = true;
+
+      return true;
+    } else {
+      return false;
+    }
   }
 
   public unseenResult(idResult: number) {
-     this.listOfResult.filter(
-       result => result.id === idResult
-     )[0].isSeen = false;
+    this.listOfResult.filter(
+      result => result.id === idResult
+    )[0].isSeen = false;
   }
 
   public getAllResult(): Array<ResultModel> {
