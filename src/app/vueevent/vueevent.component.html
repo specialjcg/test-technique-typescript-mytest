@@ -1,0 +1,21 @@
+<table *ngIf="resultService.displaycard" class="pure-table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>idOwner</th>
+      <th>createdAt</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let result of eventSelectioned ">
+      <td>{{result.id}}</td>
+      <td>{{ result.idOwner }}</td>
+      <td>{{ result.createdAt}}</td>
+    </tr>
+
+
+
+  </tbody>
+</table>

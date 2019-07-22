@@ -9,7 +9,7 @@ import {unusedValueExportToPlacateAjd} from '@angular/core/src/render3/interface
 export class ResultService {
   listOfResult: Array<ResultModel> = [];
   constructor() {}
-
+displaycard:boolean=false;
   date: Date;
   // contournement pour distingueur la création des dates entre deux instances pendant les tests
   private waitsimul() {
